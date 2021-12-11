@@ -156,7 +156,7 @@ def request_anime(token: str, status: list[str], sort: str, detailed: bool = Tru
             if '401' in str(e)[:3]:
                 raise ExpiredTokenError
             else:
-                raise RuntimeError("Unexpected HTTPS error")
+                raise RuntimeError(f"Unexpected HTTPS error {e}")
 
         while user['paging'].get('next'):
             url = user['paging'].get('next')
@@ -170,8 +170,10 @@ def request_anime(token: str, status: list[str], sort: str, detailed: bool = Tru
                 response.close()
                 anime_list.extend(user['data'])
             except requests.HTTPError as e:
-                if '401' in e[:3]:
+                if '401' in str(e)[:3]:
                     raise ExpiredTokenError
+                else:
+                    raise RuntimeError(f"Unexpected HTTPS error {e}")
 
     return anime_list
 
