@@ -33,7 +33,7 @@ class Token:
         Refresh expired access token by requesting a new access and refresh token
         Returns:
         """
-        with open('.secrets/client_id') as f:
+        with open("D:/Informatyka/MalDB/.secrets/client_id") as f:
             client_id = f.readline()
 
         url = 'https://myanimelist.net/v1/oauth2/token'

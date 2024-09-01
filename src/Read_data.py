@@ -11,7 +11,7 @@ import os
 import traceback
 import pandas as pd
 from MAL_API import *
-
+print("STARTING MAL ANALYSIS")
 try:
     # for every token in the tokens folder
     for path in pathlib.Path(r"D:\Informatyka\MalDB\Tokens").iterdir():
@@ -46,12 +46,3 @@ except Exception:
         traceback.print_exc(file=log)
         log.write("\n\n")
 
-
-# if the computer has booted up less than 0.5 hour ago, then shut it down (it's 4:15 AM after all)
-# if its running for longer then it should continue doing so or
-if (time.time() - psutil.boot_time()) / 3600 < 0.5:
-    os.system("shutdown /s /t 1")
-    pass
-else:
-    # Normally the alert is launched at login, but the pc isn't being turned off so display it now
-    import Alert  # scuffed way to run a script

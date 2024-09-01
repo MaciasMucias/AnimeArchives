@@ -1,4 +1,1 @@
-D:
-CD Informatyka\MalDB\
-start C:\Users\01153134\.conda\envs\MAL_DB\python.exe D:\Informatyka\MalDB\src\Alert.py
-EXIT
+start C:\Users\01153134\.conda\envs\MalDB\python.exe D:\Informatyka\MalDB\src\Alert.py
